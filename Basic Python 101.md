@@ -30,3 +30,31 @@ print list5
 ['blue', 0.5, 10, 'a']  
 
 
+
+```
+states = {
+    'Oregon': 'OR',
+    'Florida': 'FL',
+    'California': 'CA',
+    'New York': 'NY',
+    'Michigan': 'MI'
+}
+cities = {
+    'CA': 'San Francisco',
+    'MI': 'Detroit',
+    'FL': 'Jacksonville'
+}
+cities['NY'] = 'New York'
+cities['OR'] = 'Portland'
+print '-' * 10
+print "NY State has: ", cities['NY']
+print "OR State has: ", cities['OR']
+print '-' * 10
+state = states.get('Texas')
+if not state:
+    print "Sorry, no Texas."
+
+# get a city with a default value
+city = cities.get('TX', 'Does Not Exist')
+print "The city for the state 'TX' is: %s" % city
+```
