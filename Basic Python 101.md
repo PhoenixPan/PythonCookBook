@@ -58,3 +58,19 @@ if not state:
 city = cities.get('TX', 'Does Not Exist')
 print "The city for the state 'TX' is: %s" % city
 ```
+
+
+### Generator expressions
+Using the same list comprehensions without the brackets results in a generator expression. For example, the following generator expression generates every integer from 1 to `n`.
+
+A generator expression is slightly different from a list in that the contents of entire list are generated on the fly as opposed to all at once. This is particularly useful when you don't need to access the entire list at once, but only need to iterate over over elements. For example, in the previous line where we counted the number of words in Shakespeare, we could have instead omitted the brackets and passed a generator expression to avoid allocating memory for the entire list. 
+
+Without constructing the entire list, all about performance  
+```
+# Normal:
+num_words = sum([len(line.split()) for line in shakespeare])
+print num_words
+  
+# Generator expression
+print sum(len(line.split( )) for line in shakespeare)  
+```
