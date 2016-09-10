@@ -67,10 +67,10 @@ A generator expression is slightly different from a list in that the contents of
 
 Without constructing the entire list, all about performance  
 ```
-# Normal:
+# Normal: creating a list and then sum it
 num_words = sum([len(line.split()) for line in shakespeare])
 print num_words
   
-# Generator expression
+# Generator expression: sum each len directly  
 print sum(len(line.split( )) for line in shakespeare)  
 ```
