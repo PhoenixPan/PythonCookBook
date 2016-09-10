@@ -28,3 +28,5 @@ print list5
 [1, 2, 3]  
 ['red', 'green', 'yellow']  
 ['blue', 0.5, 10, 'a']  
+
+
