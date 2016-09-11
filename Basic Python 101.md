@@ -117,3 +117,17 @@ import json
 aim = json.loads(data) # expect a string 
 aim = json.loads(data) # expect an python io object
 ```
+
+Find all keys with the same name in JSON
+```
+def parse_api_response(data):
+    import json
+    aim = json.loads(data)   # type(aim) is dict
+    result = []
+    for key in aim["businesses"]:  # type(key) is dict
+        result.append(str(key.values()[0]))  # type(key.values()) is list, change it to string and append
+    return result
+    
+test = '{"businesses": [ {"url": "www.test.com"}, {"url": "www.test2.com"} ] }'
+print parse_api_response(test)
+```
