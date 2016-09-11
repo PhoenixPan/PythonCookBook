@@ -109,3 +109,11 @@ https://docs.python.org/dev/tutorial/controlflow.html#more-on-defining-functions
 >>> e = dict({'three': 3, 'one': 1, 'two': 2})
 >>> a == b == c == d == e
 True
+
+
+##Json
+```
+import json
+aim = json.loads(data) # expect a string 
+aim = json.loads(data) # expect an python io object
+```
