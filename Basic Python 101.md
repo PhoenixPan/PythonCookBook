@@ -117,7 +117,10 @@ import json
 aim = json.loads(data) # expect a string 
 aim = json.loads(data) # expect an python io object
 ```
-
+strict: If strict is False (True is the default), then control characters will be allowed inside strings. Control characters in this context are those with character codes in the 0-31 range, including '\t' (tab), '\n', '\r' and '\0'.  
+```
+jStr = json.loads(jsonString, strict=False)
+```
 Find all keys with the same name in JSON
 ```
 def parse_api_response(data):
