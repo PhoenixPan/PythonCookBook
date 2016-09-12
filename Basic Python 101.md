@@ -102,6 +102,7 @@ https://docs.python.org/dev/tutorial/controlflow.html#more-on-defining-functions
 
 ##Dictionary
 
+```
 >>> a = dict(one=1, two=2, three=3)
 >>> b = {'one': 1, 'two': 2, 'three': 3}
 >>> c = dict(zip(['one', 'two', 'three'], [1, 2, 3]))
@@ -109,6 +110,15 @@ https://docs.python.org/dev/tutorial/controlflow.html#more-on-defining-functions
 >>> e = dict({'three': 3, 'one': 1, 'two': 2})
 >>> a == b == c == d == e
 True
+```
+#####Iterator  
+In python 2.x:  
+"for word in d" is better than "for word in d.key()" which creates a list of all keys every time it processes  
+"for word in d.iterkey()" go through it without creating the list  
+  
+In python 3.x:  
+.key() is actually .iterkey()  
+old .key() is now .viewkey()  
 
 
 ##Json
