@@ -4,7 +4,7 @@ class XMLNode:
     openCloseJudgement = '<([a-zA-Z][^<]*?)( [^<]*?)??\/>'
     attrJudgement = '([a-zA-z].*?)="(.*?)"'
     
-    #root = XMLNode("", {}, test_snippet)
+    # root = XMLNode("", {}, test_snippet)
     def __init__(self, tag, attributes, raw_content):
         self.tag = tag
         self.attributes = attributes
