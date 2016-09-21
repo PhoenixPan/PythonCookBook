@@ -144,3 +144,10 @@ def parse_api_response(data):
 test = '{"businesses": [ {"url": "www.test.com"}, {"url": "www.test2.com"} ] }'
 print parse_api_response(test)
 ```
+
+
+# Filepath
+Use double slash, try "\t"
+```
+users_filepath = 'C:\\Users\\a\\Documents\\Jupyter\\hw2\\handou\\users.csv'
+```
