@@ -147,7 +147,7 @@ print parse_api_response(test)
 
 
 # Filepath
-Use double slash, try "\t"
+Use "r" to indicate a raw string
 ```
-users_filepath = 'C:\\Users\\a\\Documents\\Jupyter\\hw2\\handou\\users.csv'
+users_filepath = r'C:\Users\Alice\Documents\Jupyter\hw2\handou\users.csv'
 ```
