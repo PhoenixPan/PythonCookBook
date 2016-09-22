@@ -1,3 +1,14 @@
+Create DataFrame from SQLite
+```
+conn = sqlite3.connect(file_path)
+cursor = conn.cursor()
+vdf = pd.DataFrame(columns = ['vid', 'tmstmp', 'lat', 'lon',  'hdg', 'pid', 'rt', 'des', 'pdist', 'spd', 'tablockid', 'tatripid'])
+vdf = pd.read_sql_query("SELECT * FROM vehicles WHERE vid IS NOT NULL", conn)
+print vdf.loc[:,'vid']
+```
+
+
+(http://www.datacarpentry.org/python-ecology-lesson/08-working-with-sql)
 ```
 import sqlite3
 conn = sqlite3.connect('example.db')
