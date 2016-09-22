@@ -1,14 +1,4 @@
-Create DataFrame from SQLite
-```
-conn = sqlite3.connect(file_path)
-cursor = conn.cursor()
-vdf = pd.DataFrame(columns = ['vid', 'tmstmp', 'lat', 'lon',  'hdg', 'pid', 'rt', 'des', 'pdist', 'spd', 'tablockid', 'tatripid'])
-vdf = pd.read_sql_query("SELECT * FROM vehicles WHERE vid IS NOT NULL", conn)
-print vdf.loc[:,'vid']
-```
-
-
-(http://www.datacarpentry.org/python-ecology-lesson/08-working-with-sql)
+# Create SQLite tables in Python
 ```
 import sqlite3
 conn = sqlite3.connect('example.db')
@@ -46,5 +36,23 @@ t = ('RHAT',)
 cursor.execute('SELECT * FROM stocks WHERE symbol=?', t)
 ```
 
-
 (https://docs.python.org/2/library/sqlite3.html)
+
+#Create DataFrame from SQLite
+```
+conn = sqlite3.connect(file_path)
+cursor = conn.cursor()
+vdf = pd.DataFrame(columns = ['vid', 'tmstmp', 'lat', 'lon',  'hdg', 'pid', 'rt', 'des', 'pdist', 'spd', 'tablockid', 'tatripid'])
+vdf = pd.read_sql_query("SELECT * FROM vehicles WHERE vid IS NOT NULL", conn)
+print vdf.loc[:,'vid']
+```
+
+(http://www.datacarpentry.org/python-ecology-lesson/08-working-with-sql)
+
+# Manipulate datatype
+```
+
+```
+
+
+(http://pandas.pydata.org/pandas-docs/stable/generated/pandas.to_numeric.html)
