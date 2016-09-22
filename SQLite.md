@@ -51,8 +51,15 @@ print vdf.loc[:,'vid']
 
 # Manipulate datatype
 ```
+vdf[['vid', 'hdg', 'pid', 'pdist', 'spd', 'tatripid']] = vdf[['vid', 'hdg', 'pid', 'pdist', 'spd', 'tatripid']].apply(pd.to_numeric)
+vdf[['vid', 'hdg', 'pid', 'pdist', 'spd', 'tatripid']] = vdf[['vid', 'hdg', 'pid', 'pdist', 'spd', 'tatripid']].astype(int)
 
+vdf['tmstmp'] = pd.to_datetime(vdf['tmstmp'])
+vdf['vid'] = vdf['vid'].astype(int)
+
+pdf['dly'] = pdf['dly'].astype(bool) # empty = False, otherwise = True
 ```
 
 
 (http://pandas.pydata.org/pandas-docs/stable/generated/pandas.to_numeric.html)
+(https://pandas-docs.github.io/pandas-docs-travis/generated/pandas.to_numeric.html)
