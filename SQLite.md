@@ -63,3 +63,17 @@ pdf['dly'] = pdf['dly'].astype(bool) # empty = False, otherwise = True
 
 (http://pandas.pydata.org/pandas-docs/stable/generated/pandas.to_numeric.html)
 (https://pandas-docs.github.io/pandas-docs-travis/generated/pandas.to_numeric.html)
+
+# Organiza data
+```
+my_group = vdf.groupby(['vid', 'pid', 'des', 'rt'])
+my_group.count()
+my_group.mean()
+
+for g in my_group.groups:
+    print g
+
+my_group.get_group('6653')
+
+my_df = my_df.sort_index(by=['Peak', 'Weeks'], ascending=[True, False])
+```
