@@ -19,6 +19,13 @@ cursor.execute("""CREATE TABLE tweets_table (
 cursor.execute("INSERT INTO stocks VALUES ('2006-01-05','BUY','RHAT',100,35.14)") # Insecure
 cursor.execute("INSERT INTO tweets_table VALUES (?, ?, ?, ?, ?)", (row['screen_name'], row['created_at'], row['retweet_count'], row['favorite_count'], row['text']))
 
+# execumtmany()
+purchases = [('2006-03-28', 'BUY', 'IBM', 1000, 45.00),
+             ('2006-04-05', 'BUY', 'MSFT', 1000, 72.00),
+             ('2006-04-06', 'SELL', 'IBM', 500, 53.00),
+            ]
+c.executemany('INSERT INTO stocks VALUES (?,?,?,?,?)', purchases)
+
 # Save the changes using "commit"
 conn.commit()
 
