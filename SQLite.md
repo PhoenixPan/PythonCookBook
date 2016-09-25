@@ -82,3 +82,36 @@ Find all unique value in a column:
 ```
 print df.column_name.unique()
 ```
+
+```
+def split_trips(df):
+    """ Splits the dataframe of vehicle data into a list of dataframes for each individual trip.
+    Args:
+        df (pd.DataFrame): A dataframe containing TrueTime bus data
+    Returns:
+        (list): A list of dataframes, where each dataFrame contains TrueTime bus data for a single bus running a
+    """
+
+    all_trips = []
+    group_by_trip = df.groupby(['vid', 'pid', 'des', 'rt'])  # Group data
+
+    for g in group_by_trip.groups:         # Iterate each group, get indexes
+        trip = group_by_trip.get_group(g)  # Using the indexes to get the DataFrame
+        trip.set_index(['tmstmp'])         # Set index
+        trip = trip.sort_values(by=['tmstmp','pdist'], ascending=[True, True])  # Sort/rank the rows in the df
+        last_pdist = 0
+        start = 0
+        end = 0
+        for index, row in trip.iterrows():
+            if last_pdist <= row['pdist']:
+                last_pdist = row['pdist']
+                end += 1
+            else:
+                all_trips.append(trip[start:end])
+                last_pdist = row['pdist']
+                start = end
+                end += 1
+        all_trips.append(trip[start:end])
+
+    return all_trips
+```
