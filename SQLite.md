@@ -63,6 +63,7 @@ pdf['dly'] = pdf['dly'].astype(bool) # empty = False, otherwise = True
 
 (http://pandas.pydata.org/pandas-docs/stable/generated/pandas.to_numeric.html)
 (https://pandas-docs.github.io/pandas-docs-travis/generated/pandas.to_numeric.html)
+(http://sebastianraschka.com/Articles/2014_sqlite_in_python_tutorial.html)
 
 # Organiza data
 ```
