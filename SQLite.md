@@ -77,11 +77,7 @@ my_group.get_group('6653')
 
 my_df = my_df.sort_index(by=['Peak', 'Weeks'], ascending=[True, False])
 ```
-
-Find all unique value in a column:  
-```
-print df.column_name.unique()
-```
+Find them in an example function:  
 
 ```
 def split_trips(df):
@@ -114,4 +110,9 @@ def split_trips(df):
         all_trips.append(trip[start:end])
 
     return all_trips
+```
+
+Find all unique value in a column:  
+```
+print df.column_name.unique()
 ```
