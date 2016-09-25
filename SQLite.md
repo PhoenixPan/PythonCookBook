@@ -77,3 +77,8 @@ my_group.get_group('6653')
 
 my_df = my_df.sort_index(by=['Peak', 'Weeks'], ascending=[True, False])
 ```
+
+Find all unique value in a column:  
+```
+print df.column_name.unique()
+```
