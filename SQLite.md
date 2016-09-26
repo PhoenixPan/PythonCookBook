@@ -1,4 +1,4 @@
-# Create SQLite tables in Python
+# Create SQLite tables
 ```
 import sqlite3
 conn = sqlite3.connect('example.db')
@@ -53,8 +53,15 @@ vdf = pd.DataFrame(columns = ['vid', 'tmstmp', 'lat', 'lon',  'hdg', 'pid', 'rt'
 vdf = pd.read_sql_query("SELECT * FROM vehicles WHERE vid IS NOT NULL", conn)
 print vdf.loc[:,'vid']
 ```
+(http://www.datacarpentry.org/python-ecology-lesson/08-working-with-sql)  
 
-(http://www.datacarpentry.org/python-ecology-lesson/08-working-with-sql)
+# Create DataFrame directly from .csv file
+```
+users = pd.read_csv(users_filepath, skiprows = 1,
+                    names=['name', 'screen_name', 'location', 'created_at',
+                           'friends_count', 'followers_count',
+                           'statuses_count', 'favourites_count'])
+```
 
 # Manipulate datatype
 ```
