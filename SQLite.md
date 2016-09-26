@@ -124,3 +124,10 @@ Find all unique value in a column
 ```
 print df.column_name.unique()
 ```
+
+
+Show Null values and replace them
+```
+print users.isnull().values.any()  # True
+users = users.fillna('')
+```
