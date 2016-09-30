@@ -1,4 +1,4 @@
-# Basic Python 101  
+# Basics
 
 Python is an interpreted language (as opposed to the compiled languages like C), which means that you will be writing and running Python scripts. Two of the most common Python data structures are lists and dictionaries.  
   
