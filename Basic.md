@@ -1,8 +1,6 @@
 # Basic Python 101  
 
-Python is an interpreted language (as opposed to the compiled languages like C), which means that you will be writing and running Python scripts. 
-
-Two of the most common Python data structures are lists and dictionaries. We will cover them briefly here.   
+Python is an interpreted language (as opposed to the compiled languages like C), which means that you will be writing and running Python scripts. Two of the most common Python data structures are lists and dictionaries.  
   
 ## Lists  
   
