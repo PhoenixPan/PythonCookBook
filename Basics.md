@@ -99,7 +99,7 @@ parrot(actor='John Cleese')  # unknown keyword argument
 https://docs.python.org/dev/tutorial/controlflow.html#more-on-defining-functions  
 
 ##Dictionary
-
+#####Creation  
 ```
 >>> a = dict(one=1, two=2, three=3)
 >>> b = {'one': 1, 'two': 2, 'three': 3}
@@ -109,6 +109,17 @@ https://docs.python.org/dev/tutorial/controlflow.html#more-on-defining-functions
 >>> a == b == c == d == e
 True
 ```
+##### Basic operation
+```
+edges = {"A":{"B":1.0, "C":1.0}}
+type(G.edges["A"]["B"]) # float
+
+if edges.has_key(key):
+    edges[key].update(value)
+else:
+    edges[key] = value
+```
+
 #####Iterator  
 In python 2.x:  
 "for word in d" is better than "for word in d.key()" which creates a list of all keys every time it processes  
