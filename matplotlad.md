@@ -44,3 +44,4 @@ spd.append(trip['spd'].mean())
 
 plt.scatter(time, spd)
 ```
+##### The result does not fit the parameter of plt.scatter
