@@ -91,6 +91,13 @@ Show Null values and replace them
 print users.isnull().values.any()  # True
 users = users.fillna('')
 ```
+Iterate rows: the first element is index, the second contains all other columns.
+```
+for index, row in df.iterrows():
+    col_value = row['col']
+```
+
+
 #####Example   
 ```
 def split_trips(df):
