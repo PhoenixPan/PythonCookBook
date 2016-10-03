@@ -1,3 +1,25 @@
+## Basic operation
+```
+# Check 10 lines
+df.head()
+```
+
+## Create DataFrame from SQLite database
+```
+import pandas as pd
+import sqlite3
+
+# Connect to database
+conn = sqlite3.connect(fname)
+cursor = conn.cursor()
+
+# Create the structure of df
+vdf = pd.DataFrame(columns = ['vid', 'tmstmp', 'lat', 'lon',  'hdg', 'pid', 'rt', 'des', 'pdist', 'spd', 'tablockid', 'tatripid'])
+
+# Use SQL statement to read from the connection
+vdf = pd.read_sql_query("SELECT * FROM vehicles WHERE vid<>\"\"", conn)
+```
+
 ## Create DataFrame directly from .csv file
 skiprows: skip the table heading
 names: column names
@@ -24,42 +46,61 @@ String to boolean, empty values will be False, otherwise True
 pdf['dly'] = pdf['dly'].astype(bool)
 ```
 
-
 (http://pandas.pydata.org/pandas-docs/stable/generated/pandas.to_numeric.html)
 (https://pandas-docs.github.io/pandas-docs-travis/generated/pandas.to_numeric.html)
 (http://sebastianraschka.com/Articles/2014_sqlite_in_python_tutorial.html)
 
-# Organiza data
+## Manipulate DataFrame
+Add new column  
+```
+df['newCol'] = pd.Series(newColList) 
+df['newCol'] = newColList?
+```  
+Drop column in DataFrame
+Axis: "1" means column, "0" means X  
+```
+df = df.drop('tmrk', 1)
+```
+Set index (do remember to assign the new value back)
+```
+df = df.set_index(['tmstmp'])
+df = df.set_index(['column1','column2'])
+```
+Sort
+```
+df = df.sort_values(by=['tmstmp', 'pdist'], ascending=[True, True])
+```
+Groupby
 ```
 my_group = vdf.groupby(['vid', 'pid', 'des', 'rt'])
-my_group.count()
-my_group.mean()
 
+# Iterate the all the groups
 for g in my_group.groups:
-    print g
+    df = my_group.get_group(g)
 
 my_group.get_group('6653')
-
-my_df = my_df.sort_index(by=['Peak', 'Weeks'], ascending=[True, False])
+my_group.count()
+my_group.mean()
 ```
-Find them in an example function   
-
+Find all unique value in a column  
+```
+print df.column_name.unique()
+```
+Show Null values and replace them  
+```
+print users.isnull().values.any()  # True
+users = users.fillna('')
+```
+#####Example   
 ```
 def split_trips(df):
-    """ Splits the dataframe of vehicle data into a list of dataframes for each individual trip.
-    Args:
-        df (pd.DataFrame): A dataframe containing TrueTime bus data
-    Returns:
-        (list): A list of dataframes, where each dataFrame contains TrueTime bus data for a single bus running a
-    """
-
     all_trips = []
-    group_by_trip = df.groupby(['vid', 'pid', 'des', 'rt'])  # Group data
+    group_by_trip = df.groupby(['vid', 'pid', 'des', 'rt'])
 
     for g in group_by_trip.groups:         # Iterate each group, get indexes
         trip = group_by_trip.get_group(g)  # Using the indexes to get the DataFrame
-        trip.set_index(['tmstmp'])         # Set index
         trip = trip.sort_values(by=['tmstmp','pdist'], ascending=[True, True])  # Sort/rank the rows in the df
+        trip = trip.set_index(['tmstmp']) 
         last_pdist = 0
         start = 0
         end = 0
@@ -73,29 +114,5 @@ def split_trips(df):
                 start = end
                 end += 1
         all_trips.append(trip[start:end])
-
     return all_trips
-```
-
-Find all unique value in a column  
-```
-print df.column_name.unique()
-```
-
-
-Show Null values and replace them
-```
-print users.isnull().values.any()  # True
-users = users.fillna('')
-```
-Add new column  
-```
-df['newCol'] = pd.Series(newColList) 
-df['newCol'] = newColList?
-```  
-
-Drop column in DataFrame
-Axis: "1" means column, "0" means X  
-```
-df = df.drop('tmrk', 1)
 ```
