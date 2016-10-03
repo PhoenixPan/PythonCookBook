@@ -9,29 +9,11 @@ plt.style.use('ggplot')
 # Adjust this to fit your screen
 matplotlib.rcParams['figure.figsize'] = (10.0, 5.0)
 ```
-Draw on plt and return a list of Line2D object
+Create a simple scatter diagram: plt.scatter(x, y)
 ```
-def plot_trip(trips, k):
-    result = []
-    for trip in trips:
-        time = trip.index.time
-        time = time.tolist()
-        spd = compute_sliding_averages(trip['spd'], k).tolist()
-        result.append(plt.plot(time, spd)[0])
-    return result
+plt.scatter(users_df['followers_count'], users_df['friends_count']) # both x and y are list type here
 ```
-
-```
-for trip in trips:
-        trip = trip.set_index('tmstmp')
-        time = trip.index.time
-        time = time.tolist()
-        spd = compute_sliding_averages(trip['spd'], k).tolist()
-        plt.plot(time, spd)
-plt.show()
-```
-
-Scatter
+Or a mroe complicated one...
 ```
 import datetime
 def plot_avg_spd(df, t):
@@ -56,6 +38,45 @@ def plot_avg_spd(df, t):
     return plt.scatter(time, spd)
 ```
 
+Draw on plt and return a list of Line2D object
+```
+def plot_trip(trips, k):
+    result = []
+    for trip in trips:
+        time = trip.index.time
+        time = time.tolist()
+        spd = compute_sliding_averages(trip['spd'], k).tolist()
+        result.append(plt.plot(time, spd)[0])
+    return result
+```
+
+```
+for trip in trips:
+        trip = trip.set_index('tmstmp')
+        time = trip.index.time
+        time = time.tolist()
+        spd = compute_sliding_averages(trip['spd'], k).tolist()
+        plt.plot(time, spd)
+plt.show()
+```
+Histogram example
+```
+def degree_distribution(edges_df):
+    dic = {}
+    # Calculate the number of friends each user has
+    for column, row in edges_df.iterrows():
+        name = row['screen_name']
+        if name in dic:
+            dic[name] = int(dic[name]) + 1
+        else:
+            dic[name] = 1
+    # Get all user count
+    x = []
+    for tuple in dic.iteritems():
+        x.append(tuple[1])
+
+    return matplotlib.pyplot.hist(x)
+```
 
 
 # Question 1
