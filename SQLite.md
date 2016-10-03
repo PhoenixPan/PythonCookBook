@@ -138,3 +138,9 @@ Show Null values and replace them
 print users.isnull().values.any()  # True
 users = users.fillna('')
 ```
+
+Drop column in DataFrame
+Axis: "1" means column, "0" means X  
+```
+df = df.drop('tmrk', 1)
+```
