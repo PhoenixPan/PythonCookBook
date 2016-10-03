@@ -138,6 +138,11 @@ Show Null values and replace them
 print users.isnull().values.any()  # True
 users = users.fillna('')
 ```
+Add new column  
+```
+df['newCol'] = pd.Series(newColList) 
+df['newCol'] = newColList?
+```  
 
 Drop column in DataFrame
 Axis: "1" means column, "0" means X  
