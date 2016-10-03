@@ -5,8 +5,34 @@ for trip in trips:
         time = time.tolist()
         spd = compute_sliding_averages(trip['spd'], k).tolist()
         plt.plot(time, spd)
-```
 plt.show()
+```
+
+
+# Create an additional column to group the df
+```
+    day_time = []
+    for index, row in df.iterrows():
+        this_time = row['tmstmp'].to_pydatetime()
+        timemark = this_time.hour * 100 + this_time.minute - this_time.minute % t
+        day_time.append(timemark)
+        
+#     df['tmrk'] = pd.Series(day_time, index=df.index)
+    df['tmrk'] = day_time
+
+    time = []
+    spd = []
+    df = df.set_index(['tmstmp'])
+    group_by_trip = df.groupby(['tmrk'])
+    for g in group_by_trip.groups:
+        trip = group_by_trip.get_group(g)
+        trip_time = trip.index.time
+        time.append(trip_time[0])
+        spd.append(trip['spd'].mean())
+    df = df.drop('tmrk', 1)
+    return plt.scatter(time, spd)
+```
+
 
 
 # Why
