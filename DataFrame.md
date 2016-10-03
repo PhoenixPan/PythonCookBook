@@ -1,20 +1,27 @@
-# Create DataFrame directly from .csv file
+## Create DataFrame directly from .csv file
+skiprows: skip the table heading
+names: column names
 ```
-users = pd.read_csv(users_filepath, skiprows = 1,
-                    names=['name', 'screen_name', 'location', 'created_at',
-                           'friends_count', 'followers_count',
-                           'statuses_count', 'favourites_count'])
+df = pd.read_csv(users_filepath, skiprows = 1,
+                 names=['name', 'screen_name', 'location', 'created_at',
+                        'friends_count', 'followers_count',
+                        'statuses_count', 'favourites_count'])
 ```
 
-# Manipulate datatype
+## Change datatype
+String to numeric
 ```
-vdf[['vid', 'hdg', 'pid', 'pdist', 'spd', 'tatripid']] = vdf[['vid', 'hdg', 'pid', 'pdist', 'spd', 'tatripid']].apply(pd.to_numeric)
-vdf[['vid', 'hdg', 'pid', 'pdist', 'spd', 'tatripid']] = vdf[['vid', 'hdg', 'pid', 'pdist', 'spd', 'tatripid']].astype(int)
-
-vdf['tmstmp'] = pd.to_datetime(vdf['tmstmp'])
+vdf[['vid', 'hdg']] = vdf[['vid', 'hdg']].apply(pd.to_numeric)
 vdf['vid'] = vdf['vid'].astype(int)
-
-pdf['dly'] = pdf['dly'].astype(bool) # empty = False, otherwise = True
+vdf[['vid', 'hdg']] = vdf[['vid', 'hdg']].astype(int)
+```
+Date format string to datetime
+```
+vdf['tmstmp'] = pd.to_datetime(vdf['tmstmp'])
+```
+String to boolean, empty values will be False, otherwise True
+```
+pdf['dly'] = pdf['dly'].astype(bool)
 ```
 
 
