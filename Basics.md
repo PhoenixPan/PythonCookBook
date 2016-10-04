@@ -154,8 +154,28 @@ test = '{"businesses": [ {"url": "www.test.com"}, {"url": "www.test2.com"} ] }'
 print parse_api_response(test)
 ```
 
+# Datetime
 
-# Filepath
+```
+import datetime
+
+# Get the current time 
+datetime.datetime.now()
+
+# Get time from a datetime
+my_datetime.time()
+
+# Make a formatted string/timestamp/whatever a datetime
+to_datetime()
+
+# Get and change year/month/day/hour/minutes... from datetime
+my_datetime.year
+my_datetime.replace(year=2016)
+my_datetime.minute
+my_datetime.replace(minute=59)
+```
+
+# String
 Use "r" to indicate a raw string
 ```
 users_filepath = r'C:\Users\Alice\Documents\Jupyter\hw2\handou\users.csv'
