@@ -14,20 +14,15 @@ list2 = ['a', 'b', 'c']
 list3 = [1, 2, 3 ]
 list4 = ["red", "green", "yellow"]
 list5 = ["blue", 0.5, 10, 'a']
-
-print list1
-print list2
-print list3
-print list4
-print list5
 ```
-[]  
-['a', 'b', 'c']  
-[1, 2, 3]  
-['red', 'green', 'yellow']  
-['blue', 0.5, 10, 'a']  
-
-
+append, extend, and +=
+```
+c = [1, 2, 3]
+c.extend(c) is the same as c += c 
+[1, 2, 3, 1, 2, 3]
+c.append(c)
+[1, 2, 3, [...]]
+```
 
 ```
 states = {
