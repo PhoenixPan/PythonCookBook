@@ -1,4 +1,4 @@
-#Use lprun to display the time used by every line of your code (in Jupyter)  
+## Use lprun to display the time used by every line (example in Jupyter)  
 ```
 import line_profiler
 def load_ipython_extension(ip):
