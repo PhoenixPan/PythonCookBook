@@ -1,6 +1,6 @@
 ## Basic operation
 ```
-# Check 10 lines
+# Check the first 5 rows
 df.head()
 ```
 
