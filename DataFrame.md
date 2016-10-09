@@ -66,6 +66,13 @@ Set index (do remember to assign the new value back)
 df = df.set_index(['tmstmp'])
 df = df.set_index(['column1','column2'])
 ```
+Reset the value for a particular cell
+```
+  for index, row in df.iterrows():
+      df.set_value(index, 'column_name', 'new_content')
+  return df
+```
+
 Sort
 ```
 df = df.sort_values(by=['tmstmp', 'pdist'], ascending=[True, True])
