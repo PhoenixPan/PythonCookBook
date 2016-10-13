@@ -179,3 +179,10 @@ Use "r" to indicate a raw string
 ```
 users_filepath = r'C:\Users\Alice\Documents\Jupyter\hw2\handou\users.csv'
 ```
+
+# Random
+Pick a random element from list/dict/etc
+```
+random.choice(d.keys())
+random.choice(list)
+```
