@@ -128,3 +128,24 @@ X_tfidf, words = tfidf(papers)
 print X_tfidf.nnz
 
 ```
+Our version results the following result (just showing the type, size, and # of non-zero elements):
+
+    <86x8686 sparse matrix of type '<type 'numpy.float64'>'
+        with 57607 stored elements in Compressed Sparse Row format>
+     
+For testing, you can also run the algorithm on the following "data set" from class:
+
+For our implementation, this returns the following output:
+
+    [[ 0.          0.          1.09861229  1.09861229  0.          1.09861229
+       0.          0.40546511  0.40546511  1.09861229  0.          1.09861229
+       0.          0.          0.40546511  1.09861229  0.81093022  0.
+       1.09861229]
+     [ 1.09861229  1.09861229  0.          0.          0.40546511  0.          0.
+       0.40546511  0.          0.          1.09861229  0.          0.
+       0.40546511  0.          0.          0.40546511  1.09861229  0.        ]
+     [ 0.          0.          0.          0.          0.40546511  0.          0.
+       0.          0.40546511  0.          0.          0.          1.09861229
+       0.40546511  0.40546511  0.          0.          0.          0.        ]]
+    ['model', 'such', 'basics', 'goal', 'bag', 'this', 'of', 'is', 'processing', 'free', 'one', 'to', 'via', 'words', 'text', 'lecture', 'the', 'approach', 'explain']
+    
