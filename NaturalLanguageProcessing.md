@@ -1,3 +1,5 @@
+## Parse raw data 
+
 ```
 import re
 
@@ -35,7 +37,7 @@ def load_federalist_corpus(filename):
 papers, authors, numbers = load_federalist_corpus("pg18.txt")
 ```
 
-
+## Calculate TFIDF
 ```
 import collections # optional, but we found the collections.Counter object useful
 import scipy.sparse as sp
