@@ -100,19 +100,25 @@ my_group.get_group('6653')
 my_group.count()
 my_group.mean()
 ```
+Iterate rows  
+The first element is index, the second contains all other columns.
+```
+for index, row in df.iterrows():
+    col_value = row['col']
+```
+
 Find all unique value in a column  
 ```
 print df.column_name.unique()
 ```
-Show Null values and replace them  
+Show NaN values and replace them   
 ```
 print users.isnull().values.any()  # True
 users = users.fillna('')
 ```
-Iterate rows: the first element is index, the second contains all other columns.
+Delete rows with NaN  
 ```
-for index, row in df.iterrows():
-    col_value = row['col']
+df = df.dropna() 
 ```
 
 
