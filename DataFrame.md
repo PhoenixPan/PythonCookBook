@@ -21,8 +21,14 @@ vdf = pd.read_sql_query("SELECT * FROM vehicles WHERE vid<>\"\"", conn)
 ```
 
 ## Create DataFrame directly from .csv file
-skiprows: skip the table heading
-names: column names
+Simple read which will automatically take column names from the csv file:  
+```
+df = pd.read_csv(file_name)
+```
+
+Custom column names:  
+skiprows: skip the table heading  
+names: column names  
 ```
 df = pd.read_csv(users_filepath, skiprows = 1,
                  names=['name', 'screen_name', 'location', 'created_at',
