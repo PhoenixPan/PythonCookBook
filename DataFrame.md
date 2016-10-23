@@ -36,6 +36,11 @@ df = pd.read_csv(users_filepath, skiprows = 1,
                         'statuses_count', 'favourites_count'])
 ```
 
+Use particular value to indicate 'NaN'
+```
+df = pd.read_csv(file_name, na_values='?')
+```
+
 ## Change datatype
 String to numeric
 ```
