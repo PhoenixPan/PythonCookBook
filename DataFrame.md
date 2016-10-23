@@ -35,6 +35,11 @@ df = pd.read_csv(users_filepath, skiprows = 1,
                         'friends_count', 'followers_count',
                         'statuses_count', 'favourites_count'])
 ```
+Rename column:  
+```
+df = df.rename(columns=lambda x: x.replace('name_old', 'name_new'))
+```
+
 
 Use particular value to indicate 'NaN'
 ```
