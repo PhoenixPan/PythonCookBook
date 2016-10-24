@@ -128,6 +128,11 @@ In python 3.x:
 .key() is actually .iterkey()  
 old .key() is now .viewkey()  
 
+Iterate N times where N is known:
+```
+for i in xrange(N):
+    do_something()
+```
 
 ##Json
 ```
