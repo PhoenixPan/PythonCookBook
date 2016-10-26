@@ -55,8 +55,13 @@ if not state:
 city = cities.get('TX', 'Does Not Exist')
 print "The city for the state 'TX' is: %s" % city
 ```
-
-
+## Array
+```
+from array import array
+l = [1,2,3]
+ar = array('i',l)
+print ar.shape
+```
 ### Generator expressions
 Using the same list comprehensions without the brackets results in a generator expression. For example, the following generator expression generates every integer from 1 to `n`.
 
