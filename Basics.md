@@ -138,7 +138,12 @@ Iterate N times where N is known:
 for i in xrange(N):
     do_something()
 ```
-
+##### Sort  
+```
+for key in sorted(d, key=d.get, reverse=True):
+        print key, d[key]
+```
+http://stackoverflow.com/questions/613183/sort-a-python-dictionary-by-value  
 ##Json
 ```
 import json
