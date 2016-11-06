@@ -201,3 +201,6 @@ Pick a random element from list/dict/etc
 random.choice(d.keys())
 random.choice(list)
 ```
+
+# File I/O
+https://www.tutorialspoint.com/python/python_files_io.htm
