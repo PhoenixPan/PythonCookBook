@@ -50,6 +50,7 @@ df = pd.read_csv(file_name, na_values='?')
 String to numeric
 ```
 vdf[['vid', 'hdg']] = vdf[['vid', 'hdg']].apply(pd.to_numeric)
+df[['date1', 'date2','date3']] = df[['date1', 'date2','date3']].apply(pd.to_datetime)
 vdf['vid'] = vdf['vid'].astype(int)
 vdf[['vid', 'hdg']] = vdf[['vid', 'hdg']].astype(int)
 ```
@@ -120,6 +121,9 @@ Show NaN values and replace them
 ```
 print users.isnull().values.any()  # True
 users = users.fillna('')
+```
+```
+df.column_name = df.column_name.fillna("wanted_value")
 ```
 Delete rows with NaN  
 ```
