@@ -6,7 +6,7 @@ Python is an interpreted language (as opposed to the compiled languages like C),
 ```
 from time_series import load_data, split_trips
 ```
-## Lists  
+## List  
   
 Lists are sequences of objects that are denoted by brackets. We can  
 * initialize a list by directly specifying their elements  
@@ -55,6 +55,10 @@ if not state:
 city = cities.get('TX', 'Does Not Exist')
 print "The city for the state 'TX' is: %s" % city
 ```
+
+## Set
+Difference between remove() and discard(): will / will not raise exception if the value is not found.  
+
 ## Array
 ```
 from array import array
