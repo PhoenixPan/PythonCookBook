@@ -57,6 +57,11 @@ print "The city for the state 'TX' is: %s" % city
 ```
 
 ## Set
+```
+my_set = set([])
+my_set.add('element')
+my_set.remove('element')
+```
 Difference between remove() and discard(): will / will not raise exception if the value is not found.  
 
 ## Array
